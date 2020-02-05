@@ -1,55 +1,26 @@
-<!DOCTYPE html>
-<style>
-
-
-
-</style>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1671.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 17.0px Courier; color: #eae96f; -webkit-text-stroke: #eae96f; background-color: #2e2e2e}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
 <body>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script>
-
-
-var margin = {top: 20, right: 30, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-var y = d3.scaleLinear()
-    .rangeRound([height, 0])
-		.nice();
-
-var x = d3.scaleBand()
-    .rangeRound([0, width])
-    .paddingInner(0.05)
-    .align(0.1)
-    
-var z = d3.scaleOrdinal(d3.schemeCategory20)
-
-  // Date format https://bl.ocks.org/zanarmstrong/ca0adb7e426c12c06a95
-  var parseTime  = d3.timeParse("%b %Y")
-  
-  
-    // Load stocks data
-  // Ex: 0: {symbol: "MSFT", date: "Jan 2000", price: "39.81"}
-  d3.csv('https://raw.githubusercontent.com/LyonDataViz/MOS5.5-Dataviz/master/data/stocks.csv', function(error, raw) {
-    
-    var symbols = [];
-    var data = []
-    
-    // Data pre-processing
-    raw.forEach(function(d, i) {
-      
-      if(symbols.indexOf(d.symbol) < 0) {
-        symbols.push(d.symbol)
-        data[symbols.indexOf(d.symbol)] = [];
-      }
-      
-      // String to INT
-      d.value = +d.price;     
- 
-      // Parsing time
-      d.date = parseTime(d.date)
-      data[symbols.indexOf(d.symbol)].push(d);
-    });
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;h1&gt;Hello World&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1">&lt;p&gt;I'm hosted with GitHub Pages.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
     
     var data_nest = d3.nest()
     	.key(function(d) { return d.date.getFullYear(); })
